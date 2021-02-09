@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 // All valid credit card numbers
 const valid1 = [4, 5, 3, 9, 6, 7, 7, 9, 0, 8, 0, 1, 6, 8, 0, 8];
 const valid2 = [5, 5, 3, 5, 7, 6, 6, 7, 6, 8, 7, 5, 1, 4, 3, 9];
@@ -24,6 +27,7 @@ const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3];
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5];
 
 
+<<<<<<< HEAD
 // # 3   
 const validateCred = array => {
 // create variables. digit and digitArr for using later,they are 0 value or empty.
@@ -32,6 +36,17 @@ const validateCred = array => {
 // itelate target array from farthest index. Every other digit is doubled (the check digit is not doubled). If the number is greater than 9 after doubling, subtract 9 from its value.
   let numCount = 0; 
   let lastNum = array[0];
+=======
+// Add your functions below:
+
+// # 3   
+const validateCred = array => {
+// create variables. digit and digitArr for using later,they are 0 value or empty.
+  let digit = 0
+  let digitArr = [];
+// itelate target array from farthest index. Every other digit is doubled (the check digit is not doubled). If the number is greater than 9 after doubling, subtract 9 from its value.
+  let numCount = 0; 
+>>>>>>> origin/master
   for(let i = array.length-1; i > -1; i --){
       digit = array[i];
       numCount += 1;
@@ -45,7 +60,10 @@ const validateCred = array => {
   }
   digitArr.unshift(digit);
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 // add all digit number by iterate digitArr
    const sumNum = arr => {
      let number = 0;
@@ -53,6 +71,7 @@ const validateCred = array => {
        number = number + arr[i];
      }
      return number;
+<<<<<<< HEAD
    };
 
 // check if sumNum can be 0 if it divides 10 and return true if it can, return false if it cant 
@@ -67,6 +86,19 @@ const validateCred = array => {
 };
 
 
+=======
+   }
+// check if sumNum can be 0 if it divides 10 and return true if it can, return false if it cant 
+   let sumDigit = sumNum(digitArr);
+   if(sumDigit % 10 === 0){
+    //  console.log('valid')
+     return true;
+   } else {
+    //  console.log('invalid');
+     return false;
+   }
+};
+>>>>>>> origin/master
 // # 4
 // function to check through the nested array for which numbers are invalid, and return another nested array of invalid cards.
 const findInvalidCards = nestedArr =>{
@@ -78,7 +110,11 @@ const findInvalidCards = nestedArr =>{
     }
   }
   return invalidCardsArr;
+<<<<<<< HEAD
 };
+=======
+}
+>>>>>>> origin/master
 
 // set object that keys are last number of cards and values are the card companys number.
 let checkDigit = {
@@ -86,6 +122,7 @@ let checkDigit = {
     4: 'Visa',
     5: 'MasterCard',
     6: 'Discover'
+<<<<<<< HEAD
   };
   
 // # 5
@@ -103,6 +140,23 @@ const invalidCardCompanies = array => {
     if ( arr[arr.length-1] == key){
       companyName = checkDigit[key];
       if(!invalidCardsCompany.includes(companyName)){
+=======
+  },
+// # 5
+// function to identify the credit card companies that have possibly issued these faulty numbers. 
+invalidCardCompanies = arr => {
+  let invalidCardsArr = findInvalidCards(arr);
+  companyName = '';
+  invalidCardsCompany = [];
+  for( let arr of invalidCardsArr){
+    if ( arr[arr.length-1] !== 3 && arr[arr.length-1] !== 4 && arr[arr.length-1] !== 5 && arr[arr.length-1] !== 6){
+        companyName = 'company not found'}
+// return array of companies that have mailed out cards with invalid numbers. This array isn't contain duplicates.      
+    for(let key in checkDigit){
+      if ( arr[arr.length-1] == key){
+         companyName = checkDigit[key];
+         if(!invalidCardsCompany.includes(companyName)){
+>>>>>>> origin/master
            invalidCardsCompany.push(companyName);
          }
         }
@@ -113,4 +167,8 @@ const invalidCardCompanies = array => {
 };
 
 invalidCardCompanies(batch);
+<<<<<<< HEAD
 //return 'MasterCard', 'Amex (American Express)', 'Visa'
+=======
+//return 'MasterCard', 'Amex (American Express)', 'Visa'
+>>>>>>> origin/master
