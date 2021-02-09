@@ -27,7 +27,7 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 // # 3   
 const validateCred = array => {
 // create variables. digit and digitArr for using later,they are 0 value or empty.
-  let digit = 0
+  let digit = 0;
   let digitArr = [];
 // itelate target array from farthest index. Every other digit is doubled (the check digit is not doubled). If the number is greater than 9 after doubling, subtract 9 from its value.
   let numCount = 0; 
@@ -53,7 +53,7 @@ const validateCred = array => {
        number = number + arr[i];
      }
      return number;
-   }
+   };
 
 // check if sumNum can be 0 if it divides 10 and return true if it can, return false if it cant 
    let sumDigit = sumNum(digitArr);
@@ -86,22 +86,23 @@ let checkDigit = {
     4: 'Visa',
     5: 'MasterCard',
     6: 'Discover'
-  },
+  };
   
 // # 5
 // function to identify the credit card companies that have possibly issued these faulty numbers. 
-invalidCardCompanies = arr => {
-  let invalidCardsArr = findInvalidCards(arr);
-  companyName = '';
-  invalidCardsCompany = [];
+const invalidCardCompanies = array => {
+  let invalidCardsArr = findInvalidCards(array);
+  let companyName = '';
+  let invalidCardsCompany = [];
   for( let arr of invalidCardsArr){
     if ( arr[arr.length-1] !== 3 && arr[arr.length-1] !== 4 && arr[arr.length-1] !== 5 && arr[arr.length-1] !== 6){
-        companyName = 'company not found'}
+        companyName = 'company not found';
+      }
 // return array of companies that have mailed out cards with invalid numbers. This array isn't contain duplicates.      
-    for(let key in checkDigit){
-      if ( arr[arr.length-1] == key){
-         companyName = checkDigit[key];
-         if(!invalidCardsCompany.includes(companyName)){
+  for(let key in checkDigit){
+    if ( arr[arr.length-1] == key){
+      companyName = checkDigit[key];
+      if(!invalidCardsCompany.includes(companyName)){
            invalidCardsCompany.push(companyName);
          }
         }
