@@ -114,3 +114,45 @@ const invalidCardCompanies = array => {
 
 invalidCardCompanies(batch);
 //return 'MasterCard', 'Amex (American Express)', 'Visa'
+
+// # 7-1,2
+// function to check credit number of string
+const checkNumString = string =>{
+  let arrayOfNumbers = [];
+  const newString = string.split('');
+  for(let n in newString){
+    arrayOfNumbers.push(parseInt(newString[n]));
+  }
+  // console.log(arrayOfNumbers);
+  validateCred(arrayOfNumbers);
+};
+
+// let string = '4556737586899855';
+// checkNumString(string);
+
+// # 7-3
+// function that converts invalid numbers into valid numbers
+
+//# 7-3 convert invalid numbers into valid numbers.
+function convertIntoValid(arr){
+  arr.splice(arr.length-1, 1, 0);
+  console.log(arr)
+  let checkForModulo = parseInt(validateCred(arr)[1]);
+  let moduloNum = checkForModulo % 10;
+  let newLastDigit = 0;
+
+  if (moduloNum  > 0 ) {
+    newLastDigit += (10 - moduloNum); 
+  }
+  // console.log(newLastDigit)
+  arr.splice(-1, 1, newLastDigit);
+  let newArr = arr;
+  console.log(newArr)
+  validateCred(newArr);
+  return newArr;
+
+};
+
+console.log(invalid5); 
+convertIntoValid(invalid5);
+
